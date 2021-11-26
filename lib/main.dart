@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'input.dart';
+import 'pages/input.dart';
 
 void main() => runApp(App());
 
@@ -25,14 +25,7 @@ class Home extends StatelessWidget {
           child: const Text("Input Page"),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return Scaffold(
-                appBar: AppBar(
-                  title: const Text("Input Page Title"),
-                ),
-                body: Center(
-                  child: Input(),
-                ),
-              );
+              return InputPage();
             }));
           },
         ),

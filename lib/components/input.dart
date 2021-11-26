@@ -8,6 +8,11 @@ class Input extends StatefulWidget {
 class _InputState extends State<Input> {
   @override
   Widget build(BuildContext) {
-    return TextFormField();
+    return const TextField(
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: "Text",
+      ),
+    );
   }
 }
