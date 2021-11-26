@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'input.dart';
 
 void main() => runApp(App());
 
@@ -28,8 +29,8 @@ class Home extends StatelessWidget {
                 appBar: AppBar(
                   title: const Text("Input Page Title"),
                 ),
-                body: const Center(
-                  child: Text("Input Page Content"),
+                body: Center(
+                  child: Input(),
                 ),
               );
             }));
