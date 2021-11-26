@@ -32,6 +32,7 @@ class _InputState extends State<Input> {
           labelText: _placeholder,
         ),
         onChanged: _onChanged,
+        style: const TextStyle(fontSize: 15),
       ),
       margin: const EdgeInsets.symmetric(vertical: 20),
     );

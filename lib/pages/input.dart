@@ -28,7 +28,10 @@ class _InputPageState extends State<InputPage> {
                     },
                   )),
               Container(
-                  child: Text("Text: $_text"),
+                  child: Text(
+                    "Text: $_text",
+                    style: const TextStyle(fontSize: 15),
+                  ),
                   margin: const EdgeInsets.symmetric(horizontal: 13)),
             ],
             crossAxisAlignment: CrossAxisAlignment.start,
