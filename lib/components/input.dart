@@ -7,12 +7,15 @@ class Input extends StatefulWidget {
 
 class _InputState extends State<Input> {
   @override
-  Widget build(BuildContext) {
-    return const TextField(
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: "Text",
+  Widget build(BuildContext context) {
+    return Container(
+      child: const TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: "Text",
+        ),
       ),
+      margin: const EdgeInsets.symmetric(vertical: 20),
     );
   }
 }
