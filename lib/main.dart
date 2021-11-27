@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/input.dart';
+import 'pages/buttons.dart';
 
 void main() => runApp(App());
 
@@ -21,13 +22,28 @@ class Home extends StatelessWidget {
         title: const Text("Welcome to Flutter"),
       ),
       body: Center(
-        child: GestureDetector(
-          child: const Text("Input Page"),
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return InputPage();
-            }));
-          },
+        child: Column(
+          children: <Widget>[
+            GestureDetector(
+              child: const Text("Input Page"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return InputPage();
+                }));
+              },
+            ),
+            GestureDetector(
+              child: const Text("Button Page"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return ButtonsPage();
+                }));
+              },
+            ),
+          ],
+          mainAxisAlignment: MainAxisAlignment.center,
         ),
       ),
     );
