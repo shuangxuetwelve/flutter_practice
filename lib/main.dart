@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/input.dart';
 import 'pages/buttons.dart';
+import 'pages/dialogs.dart';
 
 void main() => runApp(App());
 
@@ -34,11 +35,20 @@ class Home extends StatelessWidget {
               },
             ),
             GestureDetector(
-              child: const Text("Button Page"),
+              child: const Text("Buttons Page"),
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
                   return ButtonsPage();
+                }));
+              },
+            ),
+            GestureDetector(
+              child: const Text("Dialogs Page"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return DialogsPage();
                 }));
               },
             ),
