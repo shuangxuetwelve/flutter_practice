@@ -14,13 +14,8 @@ class ButtonsPage extends StatelessWidget {
               child: ElevatedButton(
                 child: const Text(
                   "ElevatedButton",
-                  style: TextStyle(fontSize: 15),
                 ),
                 onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.orange),
-                ),
               ),
               width: 300,
               height: 50,

@@ -10,6 +10,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter Demo",
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.orange),
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(
+            fontSize: 15,
+            color: Colors.black87,
+          ),
+        ),
+      ),
       home: Home(),
     );
   }
@@ -52,6 +61,7 @@ class Home extends StatelessWidget {
                 }));
               },
             ),
+            const Text("Test theme"),
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
