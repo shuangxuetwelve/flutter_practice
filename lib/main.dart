@@ -11,11 +11,13 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Demo",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.orange),
+        colorScheme: const ColorScheme.light(
+          primary: Colors.orange,
+        ),
+        // primaryColor: Colors.green,
         textTheme: const TextTheme(
           bodyText2: TextStyle(
             fontSize: 15,
-            color: Colors.black87,
           ),
         ),
       ),
@@ -61,7 +63,6 @@ class Home extends StatelessWidget {
                 }));
               },
             ),
-            const Text("Test theme"),
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
