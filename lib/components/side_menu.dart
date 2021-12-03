@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import '../constants/common.dart';
 
 class SideMenu extends StatelessWidget {
-  void Function(String) onTap;
+  void Function(PageType) _onTap;
 
-  SideMenu(this.onTap);
+  SideMenu(this._onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +26,22 @@ class SideMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.message),
           title: const Text("Inputs"),
-          onTap: () => onTap("inputs"),
+          onTap: () => _onTap(PageType.inputs),
         ),
         ListTile(
           leading: const Icon(Icons.add_rounded),
           title: const Text("Buttons"),
-          onTap: () => onTap("buttons"),
+          onTap: () => _onTap(PageType.buttons),
         ),
         ListTile(
           leading: const Icon(Icons.window),
           title: const Text("Dialogs"),
-          onTap: () => onTap("dialogs"),
+          onTap: () => _onTap(PageType.dialogs),
         ),
         ListTile(
           leading: const Icon(Icons.radio_button_checked),
           title: const Text("Theming"),
-          onTap: () => onTap("theming"),
+          onTap: () => _onTap(PageType.theming),
         ),
       ],
     );

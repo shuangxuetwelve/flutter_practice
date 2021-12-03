@@ -4,6 +4,7 @@ import 'pages/buttons.dart';
 import 'pages/dialogs.dart';
 import 'pages/theming.dart';
 import 'components/side_menu.dart';
+import 'constants/common.dart';
 
 void main() => runApp(App());
 
@@ -34,7 +35,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String pageName = "inputs";
+  PageType _pageType = PageType.inputs;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +43,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text("Welcome to Flutter"),
       ),
-      body: PageContainer(pageName),
+      body: PageContainer(_pageType),
       drawer: Drawer(
-        child: SideMenu((String name) {
+        child: SideMenu((PageType pageType) {
           setState(() {
-            pageName = name;
+            _pageType = pageType;
           });
         }),
       ),
@@ -55,26 +56,26 @@ class _HomeState extends State<Home> {
 }
 
 class PageContainer extends StatelessWidget {
-  String pageName;
+  PageType _pageType;
 
-  PageContainer(this.pageName);
+  PageContainer(this._pageType);
 
   @override
   Widget build(BuildContext context) {
-    switch (this.pageName) {
-      case 'inputs':
+    switch (_pageType) {
+      case PageType.inputs:
         {
           return InputPage();
         }
-      case 'buttons':
+      case PageType.buttons:
         {
           return ButtonsPage();
         }
-      case 'dialogs':
+      case PageType.dialogs:
         {
           return DialogsPage();
         }
-      case 'theming':
+      case PageType.theming:
       default:
         {
           return Theming();
