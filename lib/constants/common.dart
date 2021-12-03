@@ -3,4 +3,5 @@ enum PageType {
   buttons,
   dialogs,
   theming,
+  sharedPreferences,
 }

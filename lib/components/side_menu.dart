@@ -43,6 +43,11 @@ class SideMenu extends StatelessWidget {
           title: const Text("Theming"),
           onTap: () => _onTap(PageType.theming),
         ),
+        ListTile(
+          leading: const Icon(Icons.storage),
+          title: const Text("Shared Preferences"),
+          onTap: () => _onTap(PageType.sharedPreferences),
+        ),
       ],
     );
   }

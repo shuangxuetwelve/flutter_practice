@@ -3,6 +3,7 @@ import 'pages/input.dart';
 import 'pages/buttons.dart';
 import 'pages/dialogs.dart';
 import 'pages/theming.dart';
+import 'pages/shared_preferences.dart';
 import 'components/side_menu.dart';
 import 'constants/common.dart';
 
@@ -76,9 +77,13 @@ class PageContainer extends StatelessWidget {
           return DialogsPage();
         }
       case PageType.theming:
-      default:
         {
           return Theming();
+        }
+      case PageType.sharedPreferences:
+      default:
+        {
+          return const SharedPreferencesPage();
         }
     }
   }
