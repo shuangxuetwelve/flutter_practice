@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/input.dart';
 import 'pages/buttons.dart';
 import 'pages/dialogs.dart';
+import 'pages/theming.dart';
 
 void main() => runApp(App());
 
@@ -39,28 +40,41 @@ class Home extends StatelessWidget {
             GestureDetector(
               child: const Text("Input Page"),
               onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return InputPage();
-                }));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return InputPage();
+                  },
+                ));
               },
             ),
             GestureDetector(
               child: const Text("Buttons Page"),
               onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return ButtonsPage();
-                }));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return ButtonsPage();
+                  },
+                ));
               },
             ),
             GestureDetector(
               child: const Text("Dialogs Page"),
               onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return DialogsPage();
-                }));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return DialogsPage();
+                  },
+                ));
+              },
+            ),
+            GestureDetector(
+              child: const Text("Theming"),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return Theming();
+                  },
+                ));
               },
             ),
           ],
