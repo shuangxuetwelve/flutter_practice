@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 class ButtonsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Input Page Title")),
-      body: SizedBox.expand(
-        child: Column(children: <Widget>[
+    return SizedBox.expand(
+      child: Column(
+        children: <Widget>[
           Container(
             child: SizedBox(
               child: ElevatedButton(
@@ -22,7 +21,7 @@ class ButtonsPage extends StatelessWidget {
             ),
             margin: const EdgeInsets.symmetric(vertical: 20),
           ),
-        ]),
+        ],
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'pages/input.dart';
 import 'pages/buttons.dart';
 import 'pages/dialogs.dart';
 import 'pages/theming.dart';
+import 'components/side_menu.dart';
 
 void main() => runApp(App());
 
@@ -27,61 +28,57 @@ class App extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String pageName = "inputs";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
         title: const Text("Welcome to Flutter"),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            GestureDetector(
-              child: const Text("Input Page"),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return InputPage();
-                  },
-                ));
-              },
-            ),
-            GestureDetector(
-              child: const Text("Buttons Page"),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return ButtonsPage();
-                  },
-                ));
-              },
-            ),
-            GestureDetector(
-              child: const Text("Dialogs Page"),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return DialogsPage();
-                  },
-                ));
-              },
-            ),
-            GestureDetector(
-              child: const Text("Theming"),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return Theming();
-                  },
-                ));
-              },
-            ),
-          ],
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+      body: PageContainer(pageName),
+      drawer: Drawer(
+        child: SideMenu((String name) {
+          setState(() {
+            pageName = name;
+          });
+        }),
       ),
     );
+  }
+}
+
+class PageContainer extends StatelessWidget {
+  String pageName;
+
+  PageContainer(this.pageName);
+
+  @override
+  Widget build(BuildContext context) {
+    switch (this.pageName) {
+      case 'inputs':
+        {
+          return InputPage();
+        }
+      case 'buttons':
+        {
+          return ButtonsPage();
+        }
+      case 'dialogs':
+        {
+          return DialogsPage();
+        }
+      case 'theming':
+      default:
+        {
+          return Theming();
+        }
+    }
   }
 }
