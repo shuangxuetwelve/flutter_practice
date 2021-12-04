@@ -98,7 +98,7 @@ class DialogsPage extends StatelessWidget {
                   showDialog<String>(
                       context: context,
                       builder: (BuildContext context) {
-                        return const InputDialog();
+                        return InputDialog();
                       });
                 },
               ),

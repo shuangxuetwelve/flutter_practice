@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../components/dialogs.dart';
 
 class SharedPreferencesPage extends StatefulWidget {
   const SharedPreferencesPage({Key? key}) : super(key: key);
@@ -9,11 +10,8 @@ class SharedPreferencesPage extends StatefulWidget {
 }
 
 class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
-  final SharedPreferences? _prefs = null;
-  Map _values = {
-    "key1": 'value1',
-    "key2": 'value2',
-  };
+  SharedPreferences? _prefs;
+  final Map<String, String> _values = {};
 
   _SharedPreferencesPageState() {
     _initializeSharedPreferencesInstance();
@@ -37,12 +35,34 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
   }
 
   void _initializeSharedPreferencesInstance() async {
-    final prefs = await SharedPreferences.getInstance();
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _prefs!.getKeys().forEach((key) {
+        String? value = _prefs!.getString(key);
+        if (value != null) {
+          _values[key] = value;
+        }
+      });
+    });
   }
 
   List<Widget> _constructColumnChildren() {
     return _values.entries.map((e) => Text("${e.key} ${e.value}")).toList();
   }
 
-  void _onPressedFloatingActionButton() {}
+  void _onPressedFloatingActionButton() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => InputDialog(
+        onConfirmed: (text) => _save(key: text, value: ""),
+      ),
+    );
+  }
+
+  void _save({required String key, required String value}) {
+    _prefs?.setString(key, value);
+    setState(() {
+      _values[key] = value;
+    });
+  }
 }
