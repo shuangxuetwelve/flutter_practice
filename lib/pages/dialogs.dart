@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import '../components/dialogs.dart';
 
 class DialogsPage extends StatelessWidget {
+  const DialogsPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
@@ -81,6 +84,23 @@ class DialogsPage extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.blueAccent),
                 ),
+              ),
+              width: 300,
+              height: 50,
+            ),
+            margin: const EdgeInsets.symmetric(vertical: 20),
+          ),
+          Container(
+            child: SizedBox(
+              child: ElevatedButton(
+                child: const Text("Alert Dialog with TextField"),
+                onPressed: () {
+                  showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const InputDialog();
+                      });
+                },
               ),
               width: 300,
               height: 50,
