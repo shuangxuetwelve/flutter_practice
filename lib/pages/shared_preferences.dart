@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../components/dialogs.dart';
+import '../components/input.dart';
 
 class SharedPreferencesPage extends StatefulWidget {
   const SharedPreferencesPage({Key? key}) : super(key: key);
@@ -47,7 +48,9 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
   }
 
   List<Widget> _constructColumnChildren() {
-    return _values.entries.map((e) => Text("${e.key} ${e.value}")).toList();
+    return _values.entries
+        .map((e) => Item(keyText: e.key, valueText: e.value))
+        .toList();
   }
 
   void _onPressedFloatingActionButton() {
@@ -64,5 +67,30 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
     setState(() {
       _values[key] = value;
     });
+  }
+}
+
+class Item extends StatelessWidget {
+  late String _keyText;
+  late String _valueText;
+
+  Item({Key? key, required String keyText, String valueText = ""})
+      : super(key: key) {
+    _keyText = keyText;
+    _valueText = valueText;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Input(text: _keyText),
+        ),
+        Expanded(
+          child: Input(text: _valueText),
+        ),
+      ],
+    );
   }
 }
