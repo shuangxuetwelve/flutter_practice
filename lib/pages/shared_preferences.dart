@@ -49,7 +49,13 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
 
   List<Widget> _constructColumnChildren() {
     return _values.entries
-        .map((e) => Item(keyText: e.key, valueText: e.value))
+        .map((e) => Item(
+              keyText: e.key,
+              valueText: e.value,
+              onDeleted: () {
+                _remove(key: e.key);
+              },
+            ))
         .toList();
   }
 
@@ -68,29 +74,63 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
       _values[key] = value;
     });
   }
+
+  void _remove({required String key}) {
+    _prefs?.remove(key);
+    setState(() {
+      _values.remove(key);
+    });
+  }
 }
 
 class Item extends StatelessWidget {
-  late String _keyText;
-  late String _valueText;
+  late final String _keyText;
+  late final String _valueText;
+  SharedPreferences? _prefs;
+  final void Function()? _onDeleted;
 
-  Item({Key? key, required String keyText, String valueText = ""})
-      : super(key: key) {
-    _keyText = keyText;
-    _valueText = valueText;
+  Item({
+    Key? key,
+    required String keyText,
+    String valueText = "",
+    void Function()? onDeleted,
+  })  : _keyText = keyText,
+        _valueText = valueText,
+        _onDeleted = onDeleted,
+        super(key: key) {
+    _initializeSharedPreferencesInstance();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Input(text: _keyText),
-        ),
-        Expanded(
-          child: Input(text: _valueText),
-        ),
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        children: [
+          Text(_keyText),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Input(
+                text: _valueText,
+                onChanged: (text) {
+                  _prefs?.setString(_keyText, text);
+                },
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.remove_circle),
+            onPressed: _onDeleted ?? () {},
+            iconSize: 25,
+            color: Theme.of(context).colorScheme.error,
+          ),
+        ],
+      ),
     );
+  }
+
+  void _initializeSharedPreferencesInstance() async {
+    _prefs = await SharedPreferences.getInstance();
   }
 }
