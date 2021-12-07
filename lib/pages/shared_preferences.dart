@@ -121,7 +121,7 @@ class Item extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(Icons.remove_circle),
-            onPressed: _onDeleted ?? () {},
+            onPressed: _onDeleted,
             iconSize: 25,
             color: Theme.of(context).colorScheme.error,
           ),
