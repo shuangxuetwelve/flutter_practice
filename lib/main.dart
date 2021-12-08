@@ -4,6 +4,7 @@ import 'pages/buttons.dart';
 import 'pages/dialogs.dart';
 import 'pages/theming.dart';
 import 'pages/shared_preferences.dart';
+import 'pages/images.dart' as imagesPage;
 import 'components/side_menu.dart';
 import 'constants/common.dart';
 
@@ -81,9 +82,13 @@ class PageContainer extends StatelessWidget {
           return Theming();
         }
       case PageType.sharedPreferences:
-      default:
         {
           return const SharedPreferencesPage();
+        }
+      case PageType.images:
+      default:
+        {
+          return const imagesPage.Page();
         }
     }
   }
