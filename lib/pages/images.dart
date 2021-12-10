@@ -85,15 +85,43 @@ class Page extends StatelessWidget {
           ),
         ),
         const Center(
-          child: Text("Fit pattern: fill"),
+          child: Text("Align to left."),
         ),
         Center(
-          child: Image.asset(
-            "assets/images/starbucks.webp",
-            width: 300,
-            height: 300,
-            fit: BoxFit.cover,
-            alignment: Alignment.topRight,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).colorScheme.primary,
+                width: 2,
+              ),
+            ),
+            child: Image.asset(
+              "assets/images/starbucks.webp",
+              width: 300,
+              height: 300,
+              fit: BoxFit.contain,
+              alignment: Alignment.topLeft,
+            ),
+          ),
+        ),
+        const Center(
+          child: Text("Align to right."),
+        ),
+        Center(
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).colorScheme.primary,
+                width: 2,
+              ),
+            ),
+            child: Image.asset(
+              "assets/images/starbucks.webp",
+              width: 300,
+              height: 300,
+              fit: BoxFit.contain,
+              alignment: Alignment.topRight,
+            ),
           ),
         ),
       ],
