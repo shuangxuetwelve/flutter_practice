@@ -12,7 +12,7 @@ class Page extends StatelessWidget {
         ),
         Center(
           child: Image.asset(
-            "assets/images/colors.webp",
+            'assets/images/colors.webp',
             width: 300,
             height: 300,
           ),
@@ -22,7 +22,7 @@ class Page extends StatelessWidget {
         ),
         Center(
           child: Image.network(
-            "https://images.unsplash.com/photo-1639074916237-5d24bc87e0d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80",
+            'https://images.unsplash.com/photo-1639074916237-5d24bc87e0d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80',
             width: 300,
             height: 300,
           ),
@@ -39,7 +39,7 @@ class Page extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              "assets/images/starbucks.webp",
+              'assets/images/starbucks.webp',
               width: 300,
               height: 300,
               fit: BoxFit.contain,
@@ -58,7 +58,7 @@ class Page extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              "assets/images/starbucks.webp",
+              'assets/images/starbucks.webp',
               width: 300,
               height: 300,
               fit: BoxFit.cover,
@@ -77,7 +77,7 @@ class Page extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              "assets/images/starbucks.webp",
+              'assets/images/starbucks.webp',
               width: 300,
               height: 300,
               fit: BoxFit.fill,
@@ -85,7 +85,7 @@ class Page extends StatelessWidget {
           ),
         ),
         const Center(
-          child: Text("Align to left."),
+          child: Text("Align to left with fit: BoxFit.contain."),
         ),
         Center(
           child: Container(
@@ -96,16 +96,16 @@ class Page extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              "assets/images/starbucks.webp",
+              'assets/images/street.jpg',
               width: 300,
               height: 300,
               fit: BoxFit.contain,
-              alignment: Alignment.topLeft,
+              alignment: Alignment.centerLeft,
             ),
           ),
         ),
         const Center(
-          child: Text("Align to right."),
+          child: Text("Align to right with fit: BoxFit.contain."),
         ),
         Center(
           child: Container(
@@ -116,12 +116,36 @@ class Page extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              "assets/images/starbucks.webp",
+              'assets/images/street.jpg',
               width: 300,
               height: 300,
               fit: BoxFit.contain,
-              alignment: Alignment.topRight,
+              alignment: Alignment.centerRight,
             ),
+          ),
+        ),
+        const Center(
+          child: Text("Align to top with fit: BoxFit.cover."),
+        ),
+        Center(
+          child: Image.asset(
+            'assets/images/street.jpg',
+            width: 300,
+            height: 300,
+            fit: BoxFit.cover,
+            alignment: Alignment.topCenter,
+          ),
+        ),
+        const Center(
+          child: Text("Align to bottom with fit: BoxFit.cover."),
+        ),
+        Center(
+          child: Image.asset(
+            'assets/images/street.jpg',
+            width: 300,
+            height: 300,
+            fit: BoxFit.cover,
+            alignment: Alignment.bottomCenter,
           ),
         ),
       ],
